@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מעבדות החובה בביולוגיה – פעילות אינטראקטיבית</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Heebo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e8f1ea;--ink:#16302a;--muted:#4b6a60;--card:#fbfdfb;--line:#c3d6ca;--dot:#cfe1d5;--ok:#1f8a4c;--bad:#c4402d;--a:#2f8f6b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1f1b;--ink:#e3f0e8;--muted:#9bb8ac;--card:#17302a;--line:#2a4a40;--dot:#1a332c;--ok:#5fd08e;--bad:#ff8a77}}
+:root[data-theme="dark"]{--bg:#0f1f1b;--ink:#e3f0e8;--muted:#9bb8ac;--card:#17302a;--line:#2a4a40;--dot:#1a332c;--ok:#5fd08e;--bad:#ff8a77}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font-family:Heebo,Arial,sans-serif;color:var(--ink);line-height:1.6;background-color:var(--bg);background-image:radial-gradient(circle at 10% 15%,transparent 0 46px,var(--dot) 47px 49px,transparent 50px),radial-gradient(circle at 90% 75%,transparent 0 70px,var(--dot) 71px 73px,transparent 74px),radial-gradient(circle at 60% 5%,var(--dot) 0 22px,transparent 23px);background-attachment:fixed}
+.credit{position:absolute;top:calc(env(safe-area-inset-top,0px) + 6px);left:10px;font-size:12px;color:var(--muted)}
+header{max-width:980px;margin:0 auto;padding:28px 16px 8px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+h1{font-family:Rubik,Arial,sans-serif;font-size:clamp(24px,4vw,38px);margin:0;color:var(--a)}
+#score{background:var(--card);border:1.5px solid var(--a);border-radius:999px;padding:4px 16px;font-weight:500}
+nav{max-width:980px;margin:0 auto;padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap}
+nav button{font:500 15px Heebo,Arial;padding:8px 14px;border-radius:999px;border:1.5px solid var(--c);background:var(--card);color:var(--ink);cursor:pointer}
+nav button.on{background:var(--c);color:#fff}
+main{max-width:980px;margin:0 auto;padding:8px 16px 48px}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 6px 22px rgba(15,50,40,.1);border-top:5px solid var(--a)}
+h2{font-family:Rubik,Arial;font-size:20px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 12px;font-size:15px}
+.q{border-top:1px dashed var(--line);padding:12px 0}
+.q p{margin:0 0 8px;font-weight:500}
+.o{display:block;width:100%;text-align:right;margin:5px 0;padding:8px 12px;border-radius:10px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:15px Heebo,Arial;cursor:pointer}
+.o:hover:not(:disabled){border-color:var(--a)}
+.o.g{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,transparent)}
+.o.x{border-color:var(--bad);opacity:.6;text-decoration:line-through}
+.fb{margin-top:6px;font-size:14px;color:var(--ok)}
+.btn{font:500 15px Heebo,Arial;padding:8px 18px;border-radius:10px;border:0;background:var(--a);color:#fff;cursor:pointer;margin:6px 6px 0 0}
+.btn.s{background:transparent;color:var(--a);border:1.5px solid var(--a)}
+table{width:100%;border-collapse:collapse}
+td{padding:8px 4px;vertical-align:top;border-top:1px solid var(--line);font-size:15px}
+td:first-child{width:130px;font-weight:500;color:var(--a)}
+select{width:100%;padding:7px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:14px Heebo,Arial}
+select.g{border-color:var(--ok)}select.x{border-color:var(--bad)}
+input[type=number]{width:110px;padding:7px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:15px Heebo}
+.sim{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.sim{grid-template-columns:1fr}}
+.sim label{display:block;font-weight:500;margin:8px 0 2px}
+input[type=range]{width:100%;accent-color:var(--a)}
+.out{background:color-mix(in srgb,var(--a) 10%,var(--card));border-radius:10px;padding:8px 12px;margin-top:8px;font-size:15px;min-height:40px}
+svg.gr{width:100%;height:auto;direction:ltr;background:var(--card);border:1px solid var(--line);border-radius:10px}
+svg text{fill:var(--ink);font:12px Heebo,Arial}
+.warn{color:var(--bad);font-weight:500}
+ol{margin:0 0 12px;padding-inline-start:22px}li{margin:4px 0}
+.figs{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;align-items:flex-end;margin:10px 0}
+.fig{display:flex;flex-direction:column;align-items:center;text-align:center;font-size:14px;max-width:150px}
+.bb{fill:#fff;stroke:var(--muted);animation:rise 2.4s linear infinite}
+@keyframes rise{from{transform:translateY(0);opacity:1}to{transform:translateY(-80px);opacity:0}}
+.st{animation:stm 1.6s ease-out infinite}
+@keyframes stm{from{opacity:.9;transform:translateY(0)}to{opacity:0;transform:translateY(-14px)}}
+.cap{margin:4px 0;font-size:14px;color:var(--muted);text-align:center}
+.eq{background:color-mix(in srgb,var(--a) 10%,var(--card));border-radius:10px;padding:6px 12px;display:inline-block;font-weight:500}
+@media(prefers-reduced-motion:reduce){.bb,.st{animation:none}}
+</style>
+</head>
+<body>
+<div class="credit">הוכן באמצעות בינה מלאכותית ע״י איילת מימרן</div>
+<header><h1>מעבדת המיומנויות</h1><div id="score">נקודות: <b id="sc">0</b></div></header>
+<nav id="nav"></nav>
+<main id="view"></main>
+<script>
+let score=0,done=new Set();
+const $=s=>document.querySelector(s),sh=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const gain=id=>{if(!done.has(id)){done.add(id);score+=10;$("#sc").textContent=score}};
+const rnd=()=>Math.random()-.5;
+
+/* ---------- שאלות ---------- */
+const general=[
+{q:"נבדקת השפעת הטמפרטורה על קצב תגובה אנזימטית. מהו המשתנה הבלתי תלוי?",o:["הטמפרטורה","קצב התגובה","סוג האנזים","נפח המבחנה"],w:"המשתנה הבלתי תלוי הוא הגורם ששוני אותו אנחנו קובעים ומשנים בכוונה."},
+{q:"קצב התגובה נמדד בטיטרציה. מה המשתנה התלוי ומהי דרך המדידה?",o:["תלוי: קצב התגובה. דרך מדידה: נפח הטיטרנט שנצרך","תלוי: נפח הטיטרנט. דרך מדידה: קצב התגובה","שני המושגים זהים","תלוי: הטמפרטורה. דרך מדידה: מדחום"],w:"המשתנה התלוי הוא התופעה הנבדקת; דרך המדידה היא הכלי או השיטה שבעזרתם מכמתים אותה."},
+{q:"מהי מטרת הבקרה בניסוי?",o:["לוודא שהשינוי נובע מהמשתנה הבלתי תלוי ולא מגורם אחר","להגדיל את מספר החזרות","לשנות כמה משתנים בו־זמנית","לקצר את זמן הניסוי"],w:"הבקרה מאפשרת לשלול הסברים אחרים לתוצאות."},
+{q:"בניסוי על ריכוז סוכרוז ופלסמוליזה, מהו גורם קבוע נכון?",o:["זמן ההשרייה זהה בכל התכשירים","ריכוז הסוכרוז","אחוז התאים שבהם יש פלסמוליזה","סוג התמיסה (היפר/היפוטונית)"],w:"גורם קבוע נשמר זהה בכל הערכות כדי שלא ישפיע על התוצאה."},
+{q:"מדוע חוזרים על מדידה כמה פעמים?",o:["כדי להקטין את השפעת טעויות מקריות ולחשב ממוצע","כדי לשנות את המשתנה הבלתי תלוי","כדי להגדיל את הערך הנמדד","אין צורך אם התוצאה נראית הגיונית"],w:"חזרות מגבירות את מהימנות התוצאות. נסו זאת בהדמיות: מדידה בודדת פחות יציבה."},
+{q:"בשרטוט גרף, היכן ממקמים את המשתנה הבלתי תלוי?",o:["על ציר ה־X, עם שם ויחידות","על ציר ה־Y","על שני הצירים","אין חשיבות"],w:"ציר X: המשתנה הבלתי תלוי. ציר Y: המשתנה התלוי. תמיד עם יחידות וכותרת."},
+{q:"להכין 50 מ״ל תמיסה בריכוז 0.2M מתמיסת מלאי של 1M. כמה מ״ל ממלאי נדרשים?",n:10,w:"C₁V₁ = C₂V₂, לכן V₁ = 0.2×50 / 1 = 10 מ״ל. משלימים במים ל־50 מ״ל."},
+{q:"בטיטרציה נצרכו 12 מ״ל של HCl בריכוז 0.1M. כמה מילימול HCl נצרכו?",n:1.2,w:"מילימול = ריכוז × נפח במ״ל = 0.1 × 12 = 1.2."}];
+
+const labs=[
+{id:"L26",t:"2026 · נשימה בנבטי לוביה",c:"#2f8f6b",
+ b:[["בלתי תלוי",["טמפרטורת האמבט (5–50°C)","כמות ה־NaOH","מספר הנבטים","צבע האינדיקטור"]],
+ ["דרך השינוי",["הצבת מבחנות באמבטי מים בטמפרטורות שונות","הוספת NaOH במינונים שונים","שינוי כמות הברומותימול","שימוש בזנים שונים"]],
+ ["תלוי",["קצב הנשימה התאית (כמות CO₂ שנוצרה)","טמפרטורת האמבט","נפח ה־NaOH","צבע הנבטים"]],
+ ["דרך מדידה",["טיטרציה עם NaOH עד חזרת האינדיקטור לכחול; נפח ה־NaOH שנצרך","מדידת גובה הנבטים","שקילת הנבטים","מדידת pH בסרגל"]],
+ ["גורמים קבועים",["כמות נבטים, נפח ברומותימול ומשך הדגרה זהים","ריכוז NaOH שונה בכל מבחנה","כמות נבטים שונה בכל טמפרטורה","זמן הדגרה שונה בכל טמפרטורה"]],
+ ["בקרה",["מבחנה בלי נבטים, באותה טמפרטורה","מבחנה עם נבטים רבים יותר","מבחנה בלי אינדיקטור","מבחנה עם NaOH בלבד"]]],
+ s:{x0:5,x1:50,st:5,d:25,xl:"טמפרטורה (°C)",yl:"נפח NaOH (מ״ל)",ym:25,f:x=>24*Math.exp(-(((x-38)/16)**2)),nz:5,u:"°C"},
+ qz:[{q:"בטמפרטורה 45–50°C התקבלה טיטרציה נמוכה מאשר ב־38°C. מהי המסקנה?",o:["קצב הנשימה עולה עד אופטימום ואז יורד כשהאנזימים נפגעים","קצב הנשימה עולה ללא הגבלה","קצב הנשימה אינו תלוי בטמפרטורה","קצב הנשימה יורד עם עליית הטמפרטורה"],w:"אנזימי הנשימה פועלים הכי טוב סביב טמפרטורה אופטימלית, ובחום גבוה הם נפגעים."},
+ {q:"האינדיקטור ברומותימול כחול הפך מכחול לצהוב. מה המשמעות?",o:["נוצר CO₂ והסביבה הפכה חומצית","הסביבה הפכה בסיסית","האינדיקטור התקלקל","נכנס חמצן"],w:"CO₂ מומס יוצר חומצה, ולכן האינדיקטור צהוב. ה־NaOH מנטרל אותה."}]},
+{id:"L23",t:"2023 · אנזים אוראז",c:"#c2842a",
+ b:[["בלתי תלוי",["ריכוז תמיסת האוראה","נפח התסנין","טמפרטורת החדר","סוג האינדיקטור"]],
+ ["דרך השינוי",["הכנת מיהולים שונים של תמיסת האוראה","שינוי זמן הכתישה","שימוש בזרעים שונים","שינוי ריכוז ה־HCl"]],
+ ["תלוי",["פעילות האנזים (כמות האמוניה שנוצרה)","ריכוז האוראה","צבע התסנין","נפח המבחנה"]],
+ ["דרך מדידה",["טיטרציה עם HCl עד שינוי צבע הפנול אדום; נפח ה־HCl שנצרך","מדידה בביורט","שקילת הזרעים","מדידת הטמפרטורה"]],
+ ["גורמים קבועים",["נפח תסנין, טמפרטורה וזמן תגובה זהים","ריכוז אוראה זהה בכל המבחנות","נפח תסנין שונה בכל מבחנה","זמן תגובה שונה"]],
+ ["בקרה",["תסנין מורתח במקום תסנין רגיל","תסנין בכמות כפולה","מבחנה בלי אוראה ובלי תסנין","מבחנה עם HCl בלבד"]]],
+ s:{x0:0,x1:10,st:.5,d:5,xl:"ריכוז אוראה (%)",yl:"נפח HCl (מ״ל)",ym:20,f:x=>18*x/(2.5+x),nz:2,u:"%",ex:"boil"},
+ qz:[{q:"מה מראה הבקרה עם התסנין המורתח?",o:["שהאנזים נהרס בחום (דנטורציה) ולכן אין פירוק אוראה","שהאוראה התפרקה מעצמה","שהפנול אדום רגיש לחום","שאין חלבון בתסנין"],w:"בלי אנזים פעיל אין עלייה ב־pH, ולכן הפעילות נובעת מהאנזים ולא מהתסנין עצמו."},
+ {q:"בריכוזי אוראה גבוהים הקצב מפסיק לעלות. מדוע?",o:["כל מולקולות האנזים רוויות בסובסטרט","האוראה נעלמת","האנזים עובר דנטורציה","הטיטרציה לא מדויקת"],w:"באנזים יש מספר מוגבל של אתרים פעילים, ולכן מתקבלת רוויה."},
+ {q:"מתמיסת אוראה 10% מכינים 5 מ״ל של 2%. כמה מ״ל ממלאי?",n:1,w:"V₁ = 2×5 / 10 = 1 מ״ל ממלאי, ו־4 מ״ל מים."}]},
+{id:"L05",t:"2005 · פלסמוליזה בבצל",c:"#8a4f9e",
+ b:[["בלתי תלוי",["ריכוז תמיסת הסוכרוז","סוג הבצל","הגדלת המיקרוסקופ","זמן הצפייה"]],
+ ["דרך השינוי",["הכנת תמיסות בריכוזים שונים והשרייה של תכשירים בהן","החלפת עדשות","חיתוך לגדלים שונים","שינוי תאורה"]],
+ ["תלוי",["אחוז התאים שבהם הקרום התכווץ (פלסמוליזה)","ריכוז הסוכרוז","גודל התא","צבע הבצל"]],
+ ["דרך מדידה",["ספירת תאים בכמה שדות ראייה וחישוב אחוז","שקילת האפידרמיס","מדידת pH","מדידת טמפרטורה"]],
+ ["גורמים קבועים",["אפידרמיס מאותו בצל, זמן השרייה וטמפרטורה זהים","ריכוז סוכרוז זהה","זמן השרייה שונה בכל תכשיר","סוגי בצל שונים"]],
+ ["בקרה",["תכשיר במים מזוקקים (היפוטוני)","תכשיר בסוכרוז מרוכז מאוד","תכשיר יבש","תכשיר בלי מיקרוסקופ"]]],
+ s:{x0:0,x1:.8,st:.05,d:.3,xl:"ריכוז סוכרוז (M)",yl:"תאים עם פלסמוליזה (%)",ym:100,f:x=>100/(1+Math.exp(-(x-.3)/.06)),nz:22,u:" M",ex:"cell"},
+ qz:[{q:"מה קורה לתא בצל בסביבה היפרטונית?",o:["מים יוצאים מהחלולית והקרום מתכווץ מהדופן","מים נכנסים והתא מתפוצץ","הדופן מתכווצת","אין שינוי"],w:"הדופן קשיחה, והקרום עם הציטופלסמה הוא שמתכווץ."},
+ {q:"בריכוז נמוך כמעט אין פלסמוליזה ומעל כ־0.3M היא נפוצה. מה אפשר להסיק?",o:["ריכוז המומסים בתא קרוב לכ־0.3M; מעליו התמיסה היפרטונית לתא","הסוכרוז אינו משפיע","התאים מתים בריכוז נמוך","הדופן מתפרקת"],w:"הריכוז שבו מתחילה פלסמוליזה משקף את ריכוז המומסים בתא."},
+ {q:"מהו ציור מדעי נכון של תאים?",o:["כותרת, הגדלה, קווים חדים בעיפרון וכיתוב אברונים בקווים ישרים","צביעה בצבעים","קווים עבים בעט ללא הגדלה","הצללות לעומק"],w:"ציור מדעי הוא מדויק, פשוט ומתויג."}]},
+{id:"L10",t:"2010 · אמבט מים ובטיחות",c:"#c4553d",
+ b:[["בלתי תלוי",["טמפרטורת האמבט (עד 60°C)","נפח האמבט","סוג המדחום","משך הניסוי"]],
+ ["דרך השינוי",["ערבוב מים חמים (עד 65°C) עם מים קרים והמתנה לייצוב","הרתחה ישירה של האמבט","הוספת קרח בלבד","חימום ללא מדידה"]],
+ ["תלוי",["קצב התהליך הביולוגי הנבדק באמבט","הטמפרטורה","נפח המים","סוג הכלי"]],
+ ["דרך מדידה",["מדידת הטמפרטורה במדחום לפני ובמהלך הניסוי, ומדידת התהליך (למשל טיטרציה)","תחושת יד","צבע המים","זמן ההכנה"]],
+ ["גורמים קבועים",["נפח האמבט, משך השהייה והטמפרטורה נשמרים יציבים","טמפרטורה שונה בכל מבחנה","משך שהייה שונה","נפח אמבט שונה"]],
+ ["בקרה",["מבחנה בטמפרטורת החדר או בלי הגורם הנבדק","מבחנה באמבט רותח","מבחנה ריקה","מבחנה עם מדחום בלבד"]]],
+ mix:1,
+ qz:[{q:"מהי מגבלת הבטיחות למזיגת מים חמים?",o:["אסור למזוג מים מעל 65°C","אסור מעל 100°C","אסור מעל 40°C","אין הגבלה"],w:"בניסוי הטמפרטורה המרבית באמבט היא 60°C ואסור למזוג מים מעל 65°C, כדי למנוע כוויות."},
+ {q:"מדוע מודדים את הטמפרטורה במדחום לפני הכנסת הדגימות?",o:["הטמפרטורה היא המשתנה הבלתי תלוי וחשוב לדעת מה באמת נבדק","כדי לחמם את הדגימה","כדי להוסיף בקרה","אין חשיבות"],w:"בלי מדידה לא ניתן לקשר בין התוצאה לטמפרטורה."}]}];
+
+/* ---------- רכיבים ---------- */
+function mcq(q,id,box){const d=document.createElement("div");d.className="q";d.innerHTML=`<p>${q.q}</p>`;
+ if(q.n!==undefined){d.insertAdjacentHTML("beforeend",`<input type="number" step="any" aria-label="תשובה"><button class="btn">בדיקה</button><div class="fb"></div>`);
+  d.querySelector("button").onclick=()=>{const v=parseFloat(d.querySelector("input").value),f=d.querySelector(".fb");
+   if(Math.abs(v-q.n)<.001){f.style.color="var(--ok)";f.textContent="נכון! "+q.w;gain(id)}else{f.style.color="var(--bad)";f.textContent="לא מדויק. בדקו יחידות ונוסחה ונסו שוב."}}}
+ else{const f=document.createElement("div");f.className="fb";sh(q.o.map((t,i)=>[t,i])).forEach(([t,i])=>{const b=document.createElement("button");b.className="o";b.textContent=t;
+  b.onclick=()=>{if(i===0){b.classList.add("g");d.querySelectorAll(".o").forEach(x=>x.disabled=true);f.textContent="נכון! "+q.w;gain(id)}else{b.classList.add("x");b.disabled=true;f.style.color="var(--bad)";f.textContent="לא מדויק, נסו שוב."}};d.appendChild(b)});d.appendChild(f)}
+ box.appendChild(d)}
+
+function builder(l,box){const sec=document.createElement("section");sec.innerHTML=`<h2>שלב 1: בנו את הניסוי</h2><p class="sub">תזכורת: המשתנה התלוי הוא התהליך שנבדק, ודרך המדידה היא האופן שבו מכמתים אותו. גורמים קבועים נשמרים זהים בכל הערכות, והבקרה מוודאת שהשינוי נובע מהגורם שבדקנו. בחרו בכל שורה את התשובה המתאימה.</p>`;
+ const t=document.createElement("table");l.b.forEach(([n,o],i)=>{const r=t.insertRow();r.innerHTML=`<td>${n}</td><td><select><option value="">בחרו…</option></select></td>`;
+  sh(o.map((x,j)=>[x,j])).forEach(([x,j])=>{const op=document.createElement("option");op.value=j;op.textContent=x;r.querySelector("select").appendChild(op)})});
+ sec.appendChild(t);const m=document.createElement("div");m.className="out";const b=document.createElement("button");b.className="btn";b.textContent="בדיקה";
+ b.onclick=()=>{let k=0;t.querySelectorAll("select").forEach(s=>{s.className=s.value==="0"?"g":"x";if(s.value==="0")k++});m.textContent=k===6?"מצוין! כל השורות נכונות.":`${k} מתוך 6 נכונות. תקנו את המסומנות באדום.`;if(k===6)gain(l.id+"b")};
+ const rv=document.createElement("button");rv.className="btn s";rv.textContent="הצגת התשובות";rv.onclick=()=>t.querySelectorAll("select").forEach(s=>{s.value=0;s.className="g"});
+ sec.append(b,rv,m);box.appendChild(sec)}
+
+function graphSvg(s,pts){const W=440,H=280,L=52,B=44,T=26,R=14,sx=x=>L+(x-s.x0)/(s.x1-s.x0)*(W-L-R),sy=y=>H-B-y/s.ym*(H-B-T);let g=`<svg class="gr" viewBox="0 0 ${W} ${H}" role="img" aria-label="גרף">`;
+ for(let i=0;i<=5;i++){const y=s.ym*i/5,x=s.x0+(s.x1-s.x0)*i/5;g+=`<line x1="${L}" x2="${W-R}" y1="${sy(y)}" y2="${sy(y)}" stroke="var(--line)"/><text x="${L-6}" y="${sy(y)+4}" text-anchor="end">${+y.toFixed(1)}</text><text x="${sx(x)}" y="${H-B+16}" text-anchor="middle">${+x.toFixed(2)}</text>`}
+ g+=`<path d="M${L} ${T}V${H-B}H${W-R}" stroke="var(--ink)" fill="none"/><text x="${(L+W)/2}" y="${H-6}" text-anchor="middle">${s.xl}</text><text transform="translate(12 ${H/2}) rotate(-90)" text-anchor="middle">${s.yl}</text>`;
+ const p=[...pts].sort((a,b)=>a.x-b.x);if(p.length>1)g+=`<polyline fill="none" stroke="var(--a)" stroke-width="2" points="${p.map(q=>sx(q.x)+","+sy(q.y)).join(" ")}"/>`;
+ p.forEach(q=>{q.v.forEach(v=>g+=`<circle cx="${sx(q.x)}" cy="${sy(v)}" r="2.5" fill="var(--a)" opacity=".35"/>`);g+=`<circle cx="${sx(q.x)}" cy="${sy(q.y)}" r="5" fill="var(--a)"/>`});return g+`<text x="${W/2}" y="15" text-anchor="middle" style="font-weight:700">השפעת ${s.xl.split(" (")[0]} על ${s.yl.split(" (")[0]}</text></svg>`}
+
+function sim(l,box){const s=l.s,sec=document.createElement("section");let pts=[];
+ sec.innerHTML=`<h2>שלב 2: הדמיית הניסוי</h2><p class="sub">בחרו ערך למשתנה הבלתי תלוי ובחרו מספר חזרות, ואז מדדו. האיור שמתחת למחוון משתנה בזמן אמת וממחיש מה קורה בכלי. הוסיפו לפחות 6 נקודות, ושימו לב: משתנה רציף מחברים בקו, ושם הגרף הוא ״השפעת X על Y״. השוו בין מדידה בודדת לבין 5 חזרות.</p>
+ <div class="sim"><div><label>${s.xl}: <b id="xv"></b></label><input type="range" id="x" min="${s.x0}" max="${s.x1}" step="${s.st}" value="${s.d}">
+ <label>מספר חזרות</label><select id="r"><option>1</option><option>3</option><option>5</option></select>
+ ${s.ex==="boil"?'<label><input type="checkbox" id="bo"> תסנין מורתח (בקרה)</label>':""}
+ ${s.ex==="cell"?'<svg id="cell" viewBox="0 0 120 80" width="140" aria-label="תא בצל"><rect x="4" y="4" width="112" height="72" rx="8" fill="none" stroke="var(--muted)" stroke-width="3"/><ellipse id="pr" cx="60" cy="40" rx="50" ry="30" fill="#b979c9" stroke="#6d3a80" stroke-width="2"/></svg>':""}
+ <div id="vis"></div><button class="btn" id="m">מדדו והוסיפו לגרף</button><button class="btn s" id="c">נקו</button><div class="out" id="o">התוצאות יוצגו כאן.</div></div><div id="g"></div></div>`;
+ box.appendChild(sec);const $$=q=>sec.querySelector(q),draw=()=>{$$("#g").innerHTML=graphSvg(s,pts)};
+ const cellUpd=()=>{if($$("#pr")){const y=s.f(+$$("#x").value)/100;$$("#pr").setAttribute("rx",50-30*y);$$("#pr").setAttribute("ry",30-14*y)}};
+ const upd=()=>{const x=+$$("#x").value,bo=$$("#bo");$$("#xv").textContent=x+s.u;cellUpd();live(l.id,$$("#vis"),bo&&bo.checked?.4:s.f(x))};$$("#x").oninput=upd;if($$("#bo"))$$("#bo").onchange=upd;upd();draw();
+ $$("#c").onclick=()=>{pts=[];draw()};
+ $$("#m").onclick=()=>{const x=+$$("#x").value,n=+$$("#r").value,boil=$$("#bo")&&$$("#bo").checked,v=[];
+  for(let i=0;i<n;i++)v.push(Math.min(s.ym,Math.max(0,(boil?.4:s.f(x))+rnd()*s.nz)));const y=v.reduce((a,b)=>a+b)/n;
+  pts=pts.filter(p=>p.x!==x||p.b!==boil);pts.push({x,y,v,b:boil});draw();
+  $$("#o").textContent=`ערכים: ${v.map(a=>a.toFixed(1)).join(", ")} | ממוצע: ${y.toFixed(1)}`+(n===1?" (מדידה בודדת עלולה להטעות).":"");if(pts.length>=6)gain(l.id+"s")}}
+
+function mix(l,box){const sec=document.createElement("section"),tg=[30,40,50,55][Math.floor(Math.random()*4)];
+ sec.innerHTML=`<h2>שלב 2: הכינו אמבט מים בטוח</h2><p class="sub">הכינו אמבט בטמפרטורת היעד (±2°C) על ידי ערבוב מים חמים ומים קרים (20°C). אסור למזוג מים מעל 65°C.</p>
+ <p>טמפרטורת יעד: <b>${tg}°C</b></p>
+ <label>טמפרטורת המים החמים: <b id="th"></b>°C</label><input type="range" id="t" min="40" max="85" value="60">
+ <label>נפח מים חמים: <b id="vh"></b> מ״ל</label><input type="range" id="h" min="0" max="300" step="10" value="100">
+ <label>נפח מים קרים: <b id="vc"></b> מ״ל</label><input type="range" id="c" min="0" max="300" step="10" value="100">
+ <div id="vis"></div><div class="out" id="o"></div><button class="btn" id="b">הכינו אמבט</button>`;box.appendChild(sec);
+ const $$=q=>sec.querySelector(q),res=()=>{const T=+$$("#t").value,h=+$$("#h").value,c=+$$("#c").value;$$("#th").textContent=T;$$("#vh").textContent=h;$$("#vc").textContent=c;
+  const r=h+c?(h*T+c*20)/(h+c):20;live("L10",$$("#vis"),r,T);$$("#o").innerHTML=(T>65?'<span class="warn">אזהרה: אסור למזוג מים מעל 65°C!</span><br>':"")+`הטמפרטורה בכלי: <b>${r.toFixed(1)}°C</b> (יעד ${tg}°C)`;return[T,r]};
+ ["#t","#h","#c"].forEach(i=>$$(i).oninput=res);res();
+ $$("#b").onclick=()=>{const[T,r]=res();if(T>65)return;if(Math.abs(r-tg)<=2){$$("#o").innerHTML+='<br><b style="color:var(--ok)">אמבט מוכן! הטמפרטורה בטווח ובטוחה.</b>';gain(l.id+"s")}else $$("#o").innerHTML+="<br>עדיין מחוץ לטווח. שנו את הנפחים או את טמפרטורת המים החמים."}}
+
+/* ---------- איורים והסברים ---------- */
+const mixc=(a,b,t)=>`color-mix(in srgb,${b} ${Math.round(Math.min(1,Math.max(0,t))*100)}%,${a})`;
+const sec=(h,b)=>{const s=document.createElement("section");s.innerHTML=`<h2>${h}</h2>${b}`;return s};
+const fg=(svg,t)=>`<div class="fig">${svg}<span>${t}</span></div>`;
+const tube=(col,n,pl=1)=>`<svg viewBox="0 0 120 150" width="100" aria-hidden="true"><rect x="35" y="8" width="50" height="132" rx="12" fill="none" stroke="var(--muted)" stroke-width="3"/><rect x="38" y="46" width="44" height="91" rx="9" style="fill:${col}" opacity=".85"/>${pl?'<path d="M60 130V94M60 112q-14-6-18-20M60 104q14-6 18-20" stroke="#2f8f6b" stroke-width="4" fill="none" stroke-linecap="round"/>':""}${[...Array(n)].map((_,i)=>`<circle class="bb" cx="${46+(i*13)%30}" cy="120" r="3" style="animation-delay:${i*.4}s"/>`).join("")}</svg>`;
+const beaker=(r,T)=>{const t=Math.min(1,Math.max(0,(r-20)/50));return `<svg viewBox="0 0 130 150" width="120" aria-hidden="true"><path d="M25 25v100q0 10 10 10h50q10 0 10-10V25" fill="none" stroke="var(--muted)" stroke-width="3"/><path d="M28 60h54v62q0 9-9 9H37q-9 0-9-9z" style="fill:${mixc("#6fb2e0","#e0603f",t)}" opacity=".85"/><rect x="98" y="10" width="9" height="100" rx="4" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/><rect x="100.5" y="${106-t*95}" width="4" height="${t*95+4}" fill="#c4402d"/>${(T||r)>65?[0,1,2].map(i=>`<path class="st" d="M${40+i*14} 55q-6-8 0-16t0-14" stroke="var(--bad)" fill="none" stroke-width="2" style="animation-delay:${i*.5}s"/>`).join(""):""}</svg>`};
+const cell=a=>`<svg viewBox="0 0 120 80" width="130" aria-hidden="true"><rect x="4" y="4" width="112" height="72" rx="8" fill="none" stroke="var(--muted)" stroke-width="3"/><ellipse cx="60" cy="40" rx="50" ry="30" fill="#b979c9" stroke="#6d3a80" stroke-width="2">${a?'<animate attributeName="rx" values="50;24;50" dur="6s" repeatCount="indefinite"/><animate attributeName="ry" values="30;16;30" dur="6s" repeatCount="indefinite"/>':""}</ellipse></svg>`;
+function live(id,b,y,T){if(!b)return;const k=id=="L26"?[mixc("#3b7fcf","#e8c93a",y/25),Math.round(y/4),1,"יותר CO₂ יוצר חומצה והאינדיקטור הופך צהוב, ולכן נדרש יותר NaOH."]:id=="L23"?[mixc("#f4e9ee","#e0508a",y/18),Math.round(y/3.5),0,"יותר אמוניה יוצרת סביבה בסיסית וצבע ורוד חזק, ולכן נדרש יותר HCl."]:null;
+ b.innerHTML=k?`<div class="figs">${tube(k[0],k[1],k[2])}</div><p class="cap">${k[3]}</p>`:id=="L10"?`<div class="figs">${beaker(y,T)}</div><p class="cap">הטמפרטורה בכלי: ${y.toFixed(1)}°C</p>`:""}
+const INTRO={
+L26:{t:["מניחים נבטי לוביה ברשת בתוך מבחנות עם תמיסת ברומותימול כחול, אינדיקטור ל־pH.","מציבים את המבחנות באמבטי מים בשלוש טמפרטורות: 5–10°C, 20–25°C ו־45–50°C.","הנבטים נושמים ומפרישים CO₂. הגז נמס במים ויוצר חומצה, והתמיסה הופכת מכחולה לצהובה.","בטיטרציה מוסיפים NaOH בטיפות עד שהצבע חוזר לכחול. ככל שנצרך יותר NaOH, נוצר יותר CO₂ וקצב הנשימה גבוה יותר."],
+ f:()=>fg(tube(mixc("#3b7fcf","#e8c93a",.15),1),"5–10°C")+fg(tube(mixc("#3b7fcf","#e8c93a",.5),3),"20–25°C")+fg(tube(mixc("#3b7fcf","#e8c93a",.8),4),"45–50°C"),
+ n:"הבועות וצבע התמיסה ממחישים את קצב הנשימה בכל מבחנה (מודל פשוט). בחלק ג׳ של המעבדה מנתחים נתונים על עשב ים והשפעת CO₂ גבוה."},
+L23:{t:["כותשים זרעי סויה מותפחים במכתש ומסננים. התסנין מכיל את האנזים אוראז.","מכינים מיהולים שונים של תמיסת אוראה.","מוסיפים תסנין ופנול אדום. האנזים מפרק אוראה לאמוניה, סביבה בסיסית, והצבע הופך לוורוד.","בטיטרציה עם HCl מחזירים את הצבע. נפח ה־HCl מעיד על כמות האמוניה, כלומר על פעילות האנזים. בבקרה משתמשים בתסנין מורתח."],
+ f:()=>fg(tube(mixc("#f4e9ee","#e0508a",.25),1,0),"אוראה 1%")+fg(tube(mixc("#f4e9ee","#e0508a",.6),3,0),"אוראה 4%")+fg(tube(mixc("#f4e9ee","#e0508a",.85),4,0),"אוראה 8%")+fg(tube(mixc("#f4e9ee","#e0508a",0),0,0),"תסנין מורתח (בקרה)"),
+ n:"בתסנין המורתח האנזים עבר דנטורציה, ולכן אין פירוק של אוראה ואין שינוי צבע."},
+L05:{t:["קורעים גלד דק מאפידרמיס של בצל סגול ומניחים על זכוכית נושאת.","מטפטפים מים מזוקקים על תכשיר אחד (היפוטוני) וסוכרוז מרוכז על תכשיר שני (היפרטוני).","מתבוננים במיקרוסקופ בהגדלות שונות ומשרטטים לפי כללי רישום מדעיים.","בסוכרוז המים יוצאים מהחלולית, והקרום עם הציטופלסמה מתכווץ ומתרחק מהדופן. זו פלסמוליזה."],
+ f:()=>fg(cell(0),"במים (היפוטוני)")+fg(cell(1),"בסוכרוז (היפרטוני): הקרום מתכווץ"),
+ n:"הדופן קשיחה ונשארת במקומה. הפיגמנט הסגול של החלולית מקל לזהות את ההתכווצות."},
+L10:{t:["ממלאים כוס כימית במים חמים ובמים קרים ומערבבים לטמפרטורה הרצויה.","הטמפרטורה המרבית באמבט בניסוי היא 60°C. אסור למזוג מים מעל 65°C.","מודדים במדחום ומחכים שהטמפרטורה תתייצב.","רק אז מכניסים את המבחנות לאמבט ומתחילים למדוד זמן."],
+ f:()=>fg(beaker(25),"25°C")+fg(beaker(40),"40°C")+fg(beaker(60),"60°C (מרבית)")+fg(beaker(70,70),"70°C: אסור!"),
+ n:"האיור מראה את גובה הכספית במדחום ואת האדים באמבט שאסור להכין."}};
+function intro(l,v){const d=INTRO[l.id];v.appendChild(sec("לפני שמתחילים: מה קורה בניסוי?",`<ol>${d.t.map(x=>`<li>${x}</li>`).join("")}</ol><div class="figs">${d.f()}</div><p class="sub">${d.n}</p>`))}
+function genIntro(v){
+ v.appendChild(sec("1. המבנה של כל ניסוי",`<p>ניסוי בודק קשר בין שני משתנים: את הראשון משנים (בלתי תלוי, ציר X) ואת השני מודדים (תלוי, ציר Y). אחרי שמגדירים את הבלתי תלוי, שואלים איך משנים אותו ואיך מודדים את התלוי. גורמים קבועים נשמרים זהים, והבקרה מוודאת שאין הסבר אחר לתוצאה.</p><svg class="gr" viewBox="0 0 520 200" role="img" aria-label="תרשים מבנה ניסוי"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="var(--a)"/></marker></defs><rect x="350" y="14" width="156" height="50" rx="10" fill="none" stroke="var(--a)" stroke-width="2"/><text x="428" y="36" text-anchor="middle">משתנה בלתי תלוי</text><text x="428" y="53" text-anchor="middle">מה משנים (ציר X)</text><rect x="14" y="14" width="156" height="50" rx="10" fill="none" stroke="var(--a)" stroke-width="2"/><text x="92" y="36" text-anchor="middle">משתנה תלוי</text><text x="92" y="53" text-anchor="middle">מה נמדד (ציר Y)</text><line x1="346" y1="39" x2="178" y2="39" stroke="var(--a)" stroke-width="2" marker-end="url(#ar)"/><text x="262" y="32" text-anchor="middle">משפיע על</text><text x="428" y="92" text-anchor="middle">דרך שינוי: איך משנים</text><text x="92" y="92" text-anchor="middle">דרך מדידה: איך מודדים</text><rect x="60" y="118" width="180" height="34" rx="8" fill="none" stroke="var(--muted)"/><text x="150" y="140" text-anchor="middle">גורמים קבועים: נשארים זהים</text><rect x="280" y="118" width="180" height="34" rx="8" fill="none" stroke="var(--muted)"/><text x="370" y="140" text-anchor="middle">בקרה: שוללת הסבר אחר</text></svg>`));
+ v.appendChild(sec("2. ניסוי לדוגמה: אור וקצב פוטוסינתזה",`<p>צמח מים במבחנה משחרר בועות חמצן באור. מקרבים ומרחיקים מנורה (10, 30 ו־60 ס״מ) וסופרים בועות בדקה. מבחנה נוספת עטופה ונמצאת בחושך. כל המבחנות באותה טמפרטורה, עם אותה כמות צמח ואותו נפח מים. השתמשו באיור כדי לענות על השאלות.</p><div class="figs">${fg(tube(mixc("#bfe3f2","#bfe3f2",0),5),"💡 10 ס״מ")+fg(tube(mixc("#bfe3f2","#bfe3f2",0),3),"💡 30 ס״מ")+fg(tube(mixc("#bfe3f2","#bfe3f2",0),1),"💡 60 ס״מ")+fg(`<div style="opacity:.45">${tube(mixc("#bfe3f2","#bfe3f2",0),0)}</div>`,"עטופה, בחושך")}</div><p class="cap">שימו לב לקצב הבועות בכל מבחנה.</p>`));
+ v.appendChild(sec("3. חישוב ריכוזים ומיהול",`<p>כדי להכין תמיסה מהולה מתמיסת מלאי משתמשים בנוסחה <span class="eq">C₁·V₁ = C₂·V₂</span>. דוגמה: 10 מ״ל מלאי של 1M ועוד 40 מ״ל מים נותנים 50 מ״ל של 0.2M. בטיטרציה מילימול = ריכוז × נפח במ״ל.</p><div class="figs">${fg('<div style="width:56px;height:56px;border-radius:8px;background:#8a4f9e"></div>',"מלאי 1M, 10 מ״ל")}<b>+</b>${fg('<div style="width:56px;height:56px;border-radius:8px;background:#bfe3f2"></div>',"מים, 40 מ״ל")}<b>=</b>${fg('<div style="width:56px;height:56px;border-radius:8px;background:#d6b6e0"></div>',"0.2M, 50 מ״ל")}</div>`));
+ v.appendChild(sec("4. איך בונים גרף ומנסחים מסקנה",`<p>משתנה בלתי תלוי רציף (טמפרטורה, ריכוז, זמן) מחברים בקו. משתנה שאינו רציף (סוג צמח, סוג סוכר) מציגים בעמודות. כל ציר מקבל שם ויחידות, הסימון על הצירים ברווחים שווים, והכותרת היא ״השפעת X על Y״. במסקנה כותבים ״ככל ש… כך…״.</p><svg class="gr" viewBox="0 0 520 170" role="img" aria-label="גרף קווי וגרף עמודות"><path d="M40 20V140H240M300 20V140H500" stroke="var(--ink)" fill="none"/><polyline points="50,130 100,110 150,70 200,40" fill="none" stroke="var(--a)" stroke-width="2"/><g fill="var(--a)"><circle cx="50" cy="130" r="4"/><circle cx="100" cy="110" r="4"/><circle cx="150" cy="70" r="4"/><circle cx="200" cy="40" r="4"/><rect x="320" y="90" width="40" height="50"/><rect x="380" y="50" width="40" height="90"/><rect x="440" y="110" width="40" height="30"/></g><text x="140" y="160" text-anchor="middle">משתנה רציף: גרף קווי</text><text x="400" y="160" text-anchor="middle">משתנה לא רציף: עמודות</text></svg>`))}
+general.unshift(
+{q:"באיור ניסוי האור: מהו המשתנה הבלתי תלוי?",o:["מרחק המנורה מהצמח","מספר הבועות בדקה","סוג הצמח","נפח המים"],w:"המרחק הוא מה שמשנים בכוונה, ולכן הוא הבלתי תלוי."},
+{q:"באיור ניסוי האור: מהי דרך המדידה של קצב הפוטוסינתזה?",o:["ספירת בועות החמצן בדקה","מדידת מרחק המנורה","צבע המים","גובה הצמח"],w:"המשתנה התלוי הוא קצב הפוטוסינתזה, ודרך המדידה היא ספירת הבועות."},
+{q:"מה תפקיד המבחנה העטופה, שבחושך?",o:["בקרה: לוודא שהבועות נובעות מהאור","גורם קבוע","חישוב ממוצע","הגדלת מספר הבועות"],w:"בלי אור לא צפויה פוטוסינתזה, והמבחנה מראה שהבועות קשורות לאור."},
+{q:"איזה מהבאים הוא גורם קבוע בניסוי האור?",o:["הטמפרטורה וכמות הצמח","מרחק המנורה","מספר הבועות","המבחנה העטופה"],w:"גורמים שאינם נבדקים נשמרים זהים כדי שלא ישפיעו על התוצאה."},
+{q:"הבלתי תלוי הוא סוג הסוכר (גלוקוז, סוכרוז, לקטוז). איזה גרף מתאים?",o:["גרף עמודות","גרף קווי רציף","אין צורך בגרף","גרף עוגה"],w:"סוג סוכר אינו רציף, ולכן מציגים בעמודות."},
+{q:"איזו מסקנה מנוסחת נכון לניסוי האור?",o:["ככל שהמנורה קרובה יותר, קצב הפוטוסינתזה גבוה יותר","המנורה משפיעה על הצמח","יש בועות בכל המבחנות","הפוטוסינתזה תלויה בצמח"],w:"מסקנה טובה מציינת כיוון של שינוי בין שני המשתנים."});
+/* ---------- ניווט ---------- */
+function show(i){document.querySelectorAll("nav button").forEach((b,j)=>b.classList.toggle("on",j===i));const v=$("#view");v.innerHTML="";
+ if(i===0){document.documentElement.style.setProperty("--a","#2f8f6b");const s=document.createElement("section");s.innerHTML=`<h2>מיומנויות מעבדה כלליות</h2><p class="sub">קודם מסבירים ומראים, ורק אחר כך שואלים: משתנים, בקרות, חזרות, גרפים וחישובי ריכוזים. עשר נקודות על כל תשובה נכונה.</p>`;v.appendChild(s);genIntro(v);const gq=sec("שאלות","");general.forEach((x,k)=>mcq(x,"g"+k,gq));v.appendChild(gq);return}
+ const l=labs[i-1];document.documentElement.style.setProperty("--a",l.c);const h=document.createElement("section");h.innerHTML=`<h2>${l.t}</h2><p class="sub">שלושה שלבים: בניית הניסוי, הדמיה ומסקנות.</p>`;v.appendChild(h);
+ intro(l,v);builder(l,v);l.mix?mix(l,v):sim(l,v);const q=document.createElement("section");q.innerHTML=`<h2>שלב 3: מסקנות</h2><p class="sub">איך מנסחים מסקנה? כותבים ״ככל ש… כך…״ ומציינים אם יש עלייה או ירידה, ולא רק שיש השפעה. כשהמשתנה אינו כמותי כותבים ״אם… אז…״. ההסבר נשען על הידע הביולוגי על התהליך.</p>`;l.qz.forEach((x,k)=>mcq(x,l.id+"q"+k,q));v.appendChild(q)}
+const nav=$("#nav");["מיומנויות כלליות",...labs.map(l=>l.t)].forEach((t,i)=>{const b=document.createElement("button");b.textContent=t;b.style.setProperty("--c",i?labs[i-1].c:"#2f8f6b");b.onclick=()=>show(i);nav.appendChild(b)});show(0);
+</script>
+</body>
+</html>
